@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:Tripper"
+             x:Class="Tripper.MainPage">
+    <ContentPage.BindingContext>
+        <vm:MainViewModel/>
+        
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Discover" TextColor="#FD6B7C" FontSize="24" FontAttributes="Bold" Margin="15"/>
+
+            <ImageButton x:Name="cart" HorizontalOptions="EndAndExpand" Margin="15"
+                         HeightRequest="60" Clicked="cart_Clicked"
+                         Source="https://png.pngitem.com/pimgs/s/177-1771882_favorite-cart-icon-png-download-aesthetic-paper-plane.png"
+                         VerticalOptions="EndAndExpand" />
+           
+        </StackLayout>
+
+
+
+        <CarouselView  ItemsSource="{Binding places}" PeekAreaInsets="80" HeightRequest="300" >
+
+
+            <CarouselView.ItemTemplate >
+
+                <DataTemplate>
+                    <StackLayout>
+
+                        <Frame  HeightRequest="290" WidthRequest="190"
+               BackgroundColor="White" Padding="0"
+               HasShadow="True" Margin="10"
+               HorizontalOptions="CenterAndExpand" 
+               CornerRadius="6">
+                            <Grid>
+
+                                <StackLayout BackgroundColor="black">
+
+                                    <Image   Source="{Binding imgSource}"
+                   HeightRequest="350" Aspect="AspectFill" Opacity="0.6">
+                                    </Image>
+                                </StackLayout>
+
+                                <StackLayout Margin="0,0,0,10">
+                                    <Image
+                        Source="https://www.clipartmax.com/png/full/174-1749142_instagram-bookmark-icon-transparent-png-bookmark.png"
+                        HeightRequest="50" Aspect="AspectFit"
+                        HorizontalOptions="EndAndExpand"  Margin="8,0"/>
+
+                                    <Label x:Name="title"   Text="{Binding Title}" TextColor="White" FontSize="18" 
+                           FontAttributes="None" Margin="15,0"
+                           VerticalOptions="EndAndExpand"/>
+
+                                    <StackLayout Orientation="Horizontal" Margin="15,-8,0,0">
+
+                                        <ImageButton  Clicked="detail_Clicked"
+                        Source="https://png.monster/wp-content/uploads/2021/06/png.monster-10-306x450.png"
+                        HeightRequest="20" Aspect="AspectFit"
+                        Margin="-5,0" Opacity="0.8"/>
+
+                                        <Label  Text="{Binding Country}" TextColor="White" FontSize="14" 
+                           FontAttributes="None" Margin="7,0,0,0"
+                           VerticalOptions="EndAndExpand"/>
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                            </Grid>
+
+                        </Frame>
+                    </StackLayout>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Feeling Adventurous?" TextColor="#FD6B7C" FontSize="24" FontAttributes="Bold" Margin="15"/>
+            <Label HorizontalOptions="EndAndExpand" Text="Show All" TextColor="Gray" FontSize="16" 
+                   FontAttributes="None" Margin="15" VerticalTextAlignment="Center"/>
+
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+            <StackLayout Margin="3" WidthRequest="90">
+                <ImageButton Clicked="ImageButton_Clicked" HorizontalOptions="Center" Source="https://argoevia.com/wp-content/uploads/2019/03/canoe.png" HeightRequest="40"/>
+                <Label HorizontalOptions="Center" Text="Rafting" TextColor="#6F6D72" FontSize="16" 
+                   FontAttributes="20" Margin="15" VerticalTextAlignment="Center"/>
+            </StackLayout>
+
+            <StackLayout Margin="3" WidthRequest="90">
+                <ImageButton Clicked="ImageButton_Clicked_1" HorizontalOptions="Center" Source="https://cdn-icons-png.flaticon.com/512/3125/3125442.png" HeightRequest="40"/>
+                <Label HorizontalOptions="Center" Text="Baloon" TextColor="#6F6D72" FontSize="16" 
+                   FontAttributes="20" Margin="15" VerticalTextAlignment="Center"/>
+            </StackLayout>
+
+            <StackLayout Margin="3" WidthRequest="90">
+                <ImageButton HorizontalOptions="Center" Source="https://www.pinclipart.com/picdir/middle/497-4970388_computer-icons-backpacking-art-blue-hiking-icon-png.png" HeightRequest="40"/>
+                <Label HorizontalOptions="Center" Text="Hiking" TextColor="#6F6D72" FontSize="16" 
+                   FontAttributes="20" Margin="15" VerticalTextAlignment="Center"/>
+            </StackLayout>
+
+            <StackLayout Margin="5" WidthRequest="90">
+                <ImageButton HorizontalOptions="Center" Source="https://cdn-icons-png.flaticon.com/512/3163/3163732.png" HeightRequest="40"/>
+                <Label HorizontalOptions="Center" Text="Diving" TextColor="#6F6D72" FontSize="18" 
+                   FontAttributes="20" Margin="15" VerticalTextAlignment="Center"/>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Looking For Stay?" TextColor="#FD6B7C" FontSize="24" FontAttributes="Bold" Margin="15"/>
+            <Label HorizontalOptions="EndAndExpand" Text="Show All" TextColor="Gray" FontSize="16" 
+                   FontAttributes="None" Margin="15" VerticalTextAlignment="Center"/>
+        </StackLayout>
+        <StackLayout>
+
+            <!--<CarouselView ItemsSource="{Binding hotels}" HeightRequest="100">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame   BackgroundColor="White" Padding="0"
+                CornerRadius="6" HasShadow="True" Margin="10"
+                               HeightRequest="100" WidthRequest="140" HorizontalOptions="CenterAndExpand">
+                                <Grid>
+                                    <StackLayout BackgroundColor="Black">
+                                        <Image  Source="{Binding imgSource}"
+                   HeightRequest="100" Aspect="AspectFill" Opacity="0.8"/>
+                                    </StackLayout>
+                                    <StackLayout Margin=" 0,0,0,10">
+                                        <Label   Text="{Binding Title}" TextColor="White" FontSize="18" 
+                           FontAttributes="None" Margin="15,0"
+                           VerticalOptions="EndAndExpand"/>
+                                    </StackLayout>
+                                </Grid>
+
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>-->
+            <CarouselView ItemsSource="{Binding hotels}" PeekAreaInsets="80" HeightRequest="300" >
+
+
+                <CarouselView.ItemTemplate >
+
+                    <DataTemplate>
+                        <StackLayout>
+
+                            <Frame  HeightRequest="290" WidthRequest="190"
+               BackgroundColor="White" Padding="0"
+               HasShadow="True" Margin="10"
+               HorizontalOptions="CenterAndExpand" 
+               CornerRadius="6">
+                                <Grid>
+
+                                    <StackLayout BackgroundColor="black">
+
+                                        <Image  Source="{Binding imgSource}"
+                   HeightRequest="350" Aspect="AspectFill" Opacity="0.6"/>
+                                    </StackLayout>
+
+                                    <StackLayout Margin="0,0,0,10">
+                                        <Image
+                        Source="https://www.clipartmax.com/png/full/174-1749142_instagram-bookmark-icon-transparent-png-bookmark.png"
+                        HeightRequest="50" Aspect="AspectFit"
+                        HorizontalOptions="EndAndExpand"  Margin="8,0"/>
+
+                                        <Label   Text="{Binding Title}" TextColor="White" FontSize="18" 
+                           FontAttributes="None" Margin="15,0"
+                           VerticalOptions="EndAndExpand"/>
+
+                                        <StackLayout Orientation="Horizontal" Margin="15,-8,0,0">
+
+                                            <Image
+                        Source="https://png.monster/wp-content/uploads/2021/06/png.monster-10-306x450.png"
+                        HeightRequest="20" Aspect="AspectFit"
+                        Margin="-5,0" Opacity="0.8"/>
+
+                                            <Label  Text="{Binding Country}" TextColor="White" FontSize="14" 
+                           FontAttributes="None" Margin="7,0,0,0"
+                           VerticalOptions="EndAndExpand"/>
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                </Grid>
+
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+
+
+
+        </StackLayout>
+
+    </StackLayout>
+
+</ContentPage>

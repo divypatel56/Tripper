@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "370236df-3c57-4672-9c13-e89427ad3d25": {
+      "ProjectGuid": "370236df-3c57-4672-9c13-e89427ad3d25",
+      "DisplayName": "Tripper",
+      "ColorIndex": 0
+    },
+    "dc8246d8-a5bf-4ee6-ba52-f664256ab14c": {
+      "ProjectGuid": "dc8246d8-a5bf-4ee6-ba52-f664256ab14c",
+      "DisplayName": "Tripper.Android",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" 
+             xmlns:xyt="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="Tripper.Details">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ControlTemplate x:Key="CustomTab">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="{TemplateBinding Text}" Grid.Column="0" HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="Center" Grid.Row="0" TextColor="{TemplateBinding CurrentTextColor}"/>
+                    <BoxView Color="Orange" HeightRequest="10" WidthRequest="10"
+                             HorizontalOptions="Center" VerticalOptions="Center"
+                             Grid.Row="1" CornerRadius="30" IsVisible="{TemplateBinding IsSelected}"/>
+                </Grid>
+            </ControlTemplate>
+
+            <Style
+		        x:Key="CustomTabStyle"
+		        TargetType="xyt:TabView">
+                <Setter
+			        Property="IsTabTransitionEnabled"
+			        Value="True" />
+                <Setter
+			        Property="TabStripHeight"
+			        Value="48" />
+                <Setter
+			        Property="TabContentBackgroundColor"
+			        Value="#484848" />
+                <Setter
+			        Property="TabStripPlacement"
+			        Value="Top" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout VerticalOptions="FillAndExpand" >
+                <Grid>
+                    <Frame HeightRequest="450" BackgroundColor="Black" Padding="0" >
+                        <Image Opacity="0.7" Source="https://images.pexels.com/photos/6023784/pexels-photo-6023784.jpeg"
+                               Aspect="AspectFill"/>
+                    </Frame>
+                    <StackLayout VerticalOptions="EndAndExpand" Margin="15,15,15,85">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="Maldives-Alive the Ocen in You!" TextColor="White" FontSize="28" FontAttributes="None" />
+
+                            <StackLayout  Grid.Column="1">
+
+
+                                <Label   Text="5.0" HorizontalOptions="Center" Grid.Column="0" TextColor="White" FontSize="28" FontAttributes="None" />
+
+                                <Label  Text="100 Review" Grid.Column="0"  TextColor="LightGray" FontSize="18" FontAttributes="None" />
+                            </StackLayout>
+
+                        </Grid>
+                    </StackLayout>
+                </Grid>
+                <Grid VerticalOptions="FillAndExpand" Margin="0,-30,0,0">
+
+                    <Frame CornerRadius="25" >
+                        <Grid>
+                            <xyt:TabView Style="{StaticResource CustomTabStyle}">
+                                <xyt:TabViewItem ControlTemplate="{StaticResource CustomTab}" 
+                                   Text="Overview" FontAttributes="Bold" FontSize="20" TextColorSelected="SteelBlue">
+                                    <StackLayout BackgroundColor="White">
+                                        <Grid BackgroundColor="White">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+
+                                            </Grid.ColumnDefinitions>
+                                            <StackLayout 
+                                                     Grid.Column="0" VerticalOptions="Start"
+                                                     HeightRequest="65">
+
+                                                <Grid BackgroundColor="White">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*"/>
+                                                        <RowDefinition Height="*"/>
+                                                    </Grid.RowDefinitions>
+                                                    <StackLayout 
+                                                     Grid.Column="0" VerticalOptions="Start"
+                                                     HeightRequest="100" Grid.RowSpan="2">
+                                                        <Image Source="https://www.vippng.com/png/detail/555-5550825_price-tag-png-download-blue-price-tag-icon.png"
+                                                           Aspect="AspectFit"
+                                                           HeightRequest="40" VerticalOptions="CenterAndExpand"/>
+
+                                                    </StackLayout>
+                                                    <StackLayout 
+                                                     Grid.Column="1" VerticalOptions="Start"
+                                                     HeightRequest="100">
+                                                        <Label Text="PRICE" TextColor="DarkGray" FontAttributes="Bold"
+                                                           VerticalOptions="EndAndExpand"/>
+                                                    </StackLayout>
+                                                    <StackLayout 
+                                                     Grid.Row="1" Grid.Column="1" VerticalOptions="Start"
+                                                     HeightRequest="100">
+                                                        <StackLayout Orientation="Horizontal">
+                                                            <Label Text="from" TextColor="Black"
+                                                           VerticalOptions="EndAndExpand"/>
+                                                            <Label Text="$2.5k" FontSize="18" TextColor="Black" FontAttributes="Bold"
+                                                           VerticalOptions="EndAndExpand"/>
+
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </Grid>
+
+                                            </StackLayout>
+
+
+                                            <StackLayout Grid.Column="1" HeightRequest="65" 
+                                                     VerticalOptions="Start" 
+                                                     >
+
+                                                <Grid BackgroundColor="White">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*"/>
+                                                        <RowDefinition Height="*"/>
+                                                    </Grid.RowDefinitions>
+
+                                                    <StackLayout Grid.Column="0" Grid.RowSpan="2" HeightRequest="100" 
+                                                     VerticalOptions="Start" 
+                                                    >
+                                                        <Image Source="https://www.pikpng.com/pngl/m/49-491478_flat-clock-icon-png-clock-icon-clipart.png" Aspect="AspectFit" HeightRequest="40"
+                                                           VerticalOptions="CenterAndExpand"/>
+                                                    </StackLayout>
+
+                                                    <StackLayout Grid.Column="1" HeightRequest="100" 
+                                                     VerticalOptions="Start" 
+                                                     >
+
+                                                        <Label Text="DURATION" VerticalOptions="EndAndExpand" TextColor="DarkGray"
+                                                           FontAttributes="Bold"/>
+
+                                                    </StackLayout>
+
+                                                    <StackLayout Grid.Row="1" Grid.Column="1" HeightRequest="100" 
+                                                     VerticalOptions="Start" 
+                                                     >
+
+
+                                                        <Label Text="7 Days" VerticalOptions="EndAndExpand" FontSize="21" TextColor="Black"
+                                                           FontAttributes="Bold"/>
+
+                                                    </StackLayout>
+
+                                                </Grid>
+
+
+                                            </StackLayout>
+                                        </Grid>
+                                        <StackLayout>
+                                            <Label Text="this is test label should be your description.this is test label should be your description.this is test label should be your description." 
+                                                   TextColor="Black" FontSize="16"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </xyt:TabViewItem>
+
+                                <xyt:TabViewItem ControlTemplate="{StaticResource CustomTab}" 
+                                                 Text="Reviews" FontAttributes="Bold" FontSize="18" TextColorSelected="DarkCyan">
+                                    <Grid BackgroundColor="WhiteSmoke">
+                                        <ListView>
+                                            <ListView.ItemsSource>
+                                                <x:Array Type="{x:Type x:String}">
+                                                    <x:String>Nice Place</x:String>
+                                                    <x:String>Place is very beautiful.</x:String>
+                                                    <x:String>Lots of walking so bring the kids and wear them out.</x:String>
+
+                                                </x:Array>
+                                            </ListView.ItemsSource>
+                                        </ListView>
+                                    </Grid>
+                                </xyt:TabViewItem>
+                            </xyt:TabView>
+                        </Grid>
+
+                    </Frame>
+                    <pancake:PancakeView CornerRadius="50" BackgroundColor="White"  Margin="15,-45,20,15"
+                       HeightRequest="80" WidthRequest="80" Padding="5" HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Start">
+                        <Image Aspect="AspectFill" 
+                           Source="https://cdn0.iconfinder.com/data/icons/bookmarks-tags-6/60/bookmark__book__favorite__tag__ribbon-512.png"
+                               Margin="15"/>
+                        <pancake:PancakeView.Shadow>
+                            <pancake:DropShadow Color="Black" BlurRadius="15" Offset="0,0"/>
+                        </pancake:PancakeView.Shadow>
+                    </pancake:PancakeView>
+
+                </Grid>
+            </StackLayout>
+            <StackLayout  HeightRequest="65" VerticalOptions="EndAndExpand">
+                <pancake:PancakeView BackgroundColor="DeepSkyBlue" HeightRequest="65" Padding="0" CornerRadius="20,20,0,0"
+                                     VerticalOptions="EndAndExpand">
+                    <Button Text="Book now" TextColor="WhiteSmoke" FontSize="24"  FontAttributes="Bold" BackgroundColor="DeepSkyBlue"
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="CenterAndExpand"/>
+                </pancake:PancakeView>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
